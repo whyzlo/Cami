@@ -20,7 +20,7 @@ namespace Cami.Infra.Mocks
         {
             return new List<Camera>
             {
-                CreateCamera(new Guid("42d5a6cd-fbeb-4edf-8d58-52fc48a5460a"), "France", "http://185.194.123.84:8001/mjpg/video.mjpg"),
+                CreateCamera(new Guid("42d5a6cd-fbeb-4edf-8d58-52fc48a5460a"), "France", "http://185.194.123.84:8001/mjpg/video.mjpg"), 
                 CreateCamera(new Guid("95704f48-c9c1-4cd8-982d-893b06dbd4e2"), "Serbia", "http://93.87.72.254:8090/mjpg/video.mjpg")
             };
         }
