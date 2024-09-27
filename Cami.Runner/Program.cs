@@ -1,4 +1,6 @@
-﻿using Cami.Infra;
+﻿using System;
+using System.Threading.Tasks;
+using Cami.Infra;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 
