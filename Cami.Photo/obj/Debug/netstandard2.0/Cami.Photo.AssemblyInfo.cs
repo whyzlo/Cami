@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("Cami.Photo")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+026feec3d775450c28b73a253c19470adbfc94e4")]
 [assembly: System.Reflection.AssemblyProductAttribute("Cami.Photo")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Cami.Photo")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
