@@ -6,11 +6,11 @@ using Cami.Core.Interfaces;
 
 namespace Cami.Infra.Mocks
 {
-    public class FakeImageMetaDataService : IImageMetaDataService
+    public class FakeImageMetaDataService : IImageMetaDataService 
     {
-        public async Task<Guid> Save(Guid cameraId, string contentPath)
+        public async Task<Guid> Save(Guid cameraId, string contentPath) 
         {
-            return await Task.FromResult(Guid.NewGuid());
+            return await Task.FromResult(Guid.NewGuid()); 
         }
     }
 }
