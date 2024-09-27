@@ -1,0 +1,17 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <OutputType>Library</OutputType>
+        <TargetFramework>netstandard2.0</TargetFramework>
+        <ImplicitUsings>enable</ImplicitUsings>
+        <Nullable>enable</Nullable>
+        <DockerDefaultTargetOS>Linux</DockerDefaultTargetOS>
+        <RootNamespace>Cami.Recognition</RootNamespace>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <Folder Include="Person\"/>
+        <Folder Include="Vehicle\"/>
+    </ItemGroup>
+
+</Project>

@@ -1,0 +1,12 @@
+﻿services:
+  cami.runner:
+    image: cami.runner
+    build:
+      context: .
+      dockerfile: Cami.Runner/Dockerfile
+
+  cami.face:
+    image: cami.face
+    build:
+      context: .
+      dockerfile: Cami.Face/Dockerfile
