@@ -11,7 +11,7 @@ namespace Cami.Core
             Stream frameStream
             )
         {
-            FrameStream = frameStream;;
+            FrameStream = frameStream;
         }
     }
 }
