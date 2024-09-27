@@ -11,3 +11,4 @@
 /Users/vaidotas.danius/RiderProjects/Cami/Cami.Photo/obj/Debug/netstandard2.0/Cami.Photo.csproj.Up2Date
 /Users/vaidotas.danius/RiderProjects/Cami/Cami.Photo/obj/Debug/netstandard2.0/Cami.Photo.dll
 /Users/vaidotas.danius/RiderProjects/Cami/Cami.Photo/obj/Debug/netstandard2.0/Cami.Photo.pdb
+/Users/vaidotas.danius/RiderProjects/Cami/Cami.Photo/obj/Debug/netstandard2.0/Cami.Photo.sourcelink.json

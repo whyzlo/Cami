@@ -6,7 +6,7 @@ namespace Cami.Core.Interfaces
 {
     public interface IImageStorage
     {
-        Task<Guid> SaveAsync(Guid cameraId, string prefix, Stream content);
+        Task<Guid> SaveAsync(Guid cameraId, string prefix, Stream content, DateTime timestamp);
         
         Task<string> DownloadAsync(string name);
     }

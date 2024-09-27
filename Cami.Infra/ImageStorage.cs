@@ -16,11 +16,9 @@ namespace Cami.Infra
             _imageContentService = imageContentService;
         }
 
-        public async Task<Guid> SaveAsync(Guid cameraId, string prefix, Stream content)
+        public async Task<Guid> SaveAsync(Guid cameraId, string prefix, Stream content, DateTime timestamp)
         {
-            var dateNow = DateTime.UtcNow;
-            
-            var contentPath = await _imageContentService.Upload(prefix, dateNow, content);
+            var contentPath = await _imageContentService.Upload(prefix, timestamp, content);
             var imageId = await _imageMetaDataService.Save(cameraId, contentPath);
 
             return imageId;

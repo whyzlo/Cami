@@ -31,7 +31,7 @@ public class TrackingOrchestrator(CameraPool cameraPool, IImageStorage imageStor
     {
         if (sender is Camera camera)
         {
-            Task.Run(async () => await imageStorage.SaveAsync(camera.Id, camera.Name, args.FrameStream));
+            Task.Run(async () => await imageStorage.SaveAsync(camera.Id, camera.Name, args.FrameStream, args.StartTime));
         }
     }
 }

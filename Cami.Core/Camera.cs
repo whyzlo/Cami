@@ -34,7 +34,7 @@ namespace Cami.Core
             {
                 _photoRecorder.OnPhotoCreated += (_, args) =>
                 {
-                    OnCameraFrameRecord.Invoke(this, new CameraRecordEventArgs(args.FrameStream));
+                    OnCameraFrameRecord.Invoke(this, new CameraRecordEventArgs(args.FrameStream, args.StartTime));
                 };
             }
 

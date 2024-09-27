@@ -13,3 +13,4 @@
 /Users/vaidotas.danius/RiderProjects/Cami/Cami.Infra/obj/Debug/netstandard2.0/Cami.Infra.pdb
 /Users/vaidotas.danius/RiderProjects/Cami/Cami.Infra/bin/Debug/netstandard2.0/Cami.Photo.dll
 /Users/vaidotas.danius/RiderProjects/Cami/Cami.Infra/bin/Debug/netstandard2.0/Cami.Photo.pdb
+/Users/vaidotas.danius/RiderProjects/Cami/Cami.Infra/obj/Debug/netstandard2.0/Cami.Infra.sourcelink.json

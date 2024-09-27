@@ -8,3 +8,4 @@
 /Users/vaidotas.danius/RiderProjects/Cami/Cami.Core/obj/Debug/netstandard2.0/Cami.Core.csproj.CoreCompileInputs.cache
 /Users/vaidotas.danius/RiderProjects/Cami/Cami.Core/obj/Debug/netstandard2.0/Cami.Core.dll
 /Users/vaidotas.danius/RiderProjects/Cami/Cami.Core/obj/Debug/netstandard2.0/Cami.Core.pdb
+/Users/vaidotas.danius/RiderProjects/Cami/Cami.Core/obj/Debug/netstandard2.0/Cami.Core.sourcelink.json

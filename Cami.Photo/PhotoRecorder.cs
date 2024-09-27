@@ -15,10 +15,25 @@ namespace Cami.Photo
 
         public async Task StartRecording(string sourceAddress, CancellationToken token)
         {
+            // TODO: this should be configured. Also keep in mind that it should substract time passed since last photo.
+
+            int delayInMs = 500;
             while (token.IsCancellationRequested == false)
-            {
+            {    
+                var startTime = DateTime.UtcNow; 
+
                 var dataStream = await GetFirstFrameAsStreamAsync(sourceAddress);
-                OnPhotoCreated?.Invoke(this, new PhotoRecordedEventArgs(dataStream));
+                OnPhotoCreated?.Invoke(this, new PhotoRecordedEventArgs(dataStream, startTime));
+                
+                var elapsedTime = (DateTime.UtcNow - startTime).TotalMilliseconds;
+                var remainingDelay = delayInMs - (int)elapsedTime; 
+                
+                Console.WriteLine($"Sleeping: { remainingDelay }ms");
+
+                if (remainingDelay > 0)
+                {
+                    await Task.Delay(remainingDelay, token);
+                }
             }
         }
 

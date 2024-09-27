@@ -62,3 +62,4 @@
 /Users/vaidotas.danius/RiderProjects/Cami/Cami.Runner/bin/Debug/net8.0/runtimes/win-x86/native/libSkiaSharp.dll
 /Users/vaidotas.danius/RiderProjects/Cami/Cami.Runner/bin/Debug/net8.0/Cami.Photo.dll
 /Users/vaidotas.danius/RiderProjects/Cami/Cami.Runner/bin/Debug/net8.0/Cami.Photo.pdb
+/Users/vaidotas.danius/RiderProjects/Cami/Cami.Runner/obj/Debug/net8.0/Cami.Runner.sourcelink.json

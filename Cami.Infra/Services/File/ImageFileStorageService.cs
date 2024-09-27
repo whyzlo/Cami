@@ -13,7 +13,7 @@ namespace Cami.Infra.Services.File
         public async Task<string> Upload(string prefix, DateTime timestamp, Stream content)
         {
             var utcTimestamp = timestamp.ToUniversalTime();
-            var fileName = $"{prefix}_{utcTimestamp:yyyyMMdd_HHmmss}_{Guid.NewGuid()}.jpg";
+            var fileName = $"{prefix}_{utcTimestamp:yyyyMMdd_HHmmss__fff}_{Guid.NewGuid()}.jpg";
             var filePath = Path.Combine(_storagePath, fileName);
 
             Directory.CreateDirectory(_storagePath);
