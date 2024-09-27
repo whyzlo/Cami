@@ -8,7 +8,7 @@ namespace Cami.Core
         public Stream FrameStream { get; }
 
         public PhotoRecordedEventArgs(
-            Stream frameStream
+            Stream frameStream 
             )
         {
             FrameStream = frameStream;
