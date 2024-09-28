@@ -41,57 +41,63 @@ namespace Cami.Photo
         {
             // Use HttpClient to read the MJPEG stream
             using (var client = new HttpClient())
-            using (var response = await client.GetAsync(streamUrl, HttpCompletionOption.ResponseHeadersRead))
-            using (var stream = await response.Content.ReadAsStreamAsync())
-            using (var reader = new BinaryReader(stream))
             {
-                var boundaryMarker = "--"; // MJPEG streams typically use "--" as a boundary marker
-                var contentType = response.Content.Headers.ContentType.ToString();
-
-                // Ensure the content type is multipart/x-mixed-replace (MJPEG)
-                if (!contentType.StartsWith("multipart"))
-                    throw new Exception("Invalid stream format. Expected MJPEG stream.");
-
-                while (true)
+                // TODO: timeout is important as sometimes it just stucks for some reason
+                client.Timeout = new TimeSpan(0, 0, 0, 0, 5000);
+                using (var response = await client.GetAsync(streamUrl, HttpCompletionOption.ResponseHeadersRead))
+                using (var stream = await response.Content.ReadAsStreamAsync())
+                using (var reader = new BinaryReader(stream))
                 {
-                    // Look for the boundary marker
-                    string boundary = ReadLine(reader);
-                    if (boundary.StartsWith(boundaryMarker))
+                    var boundaryMarker = "--"; // MJPEG streams typically use "--" as a boundary marker
+                    var contentType = response.Content.Headers.ContentType.ToString();
+
+                    // Ensure the content type is multipart/x-mixed-replace (MJPEG)
+                    if (!contentType.StartsWith("multipart"))
+                        throw new Exception("Invalid stream format. Expected MJPEG stream.");
+
+                    while (true)
                     {
-                        // Parse headers to find the Content-Length or skip to the image data
-                        var contentLength = -1;
-                        while (true)
+                        // Look for the boundary marker
+                        string boundary = ReadLine(reader);
+                        if (boundary.StartsWith(boundaryMarker))
                         {
-                            string header = ReadLine(reader);
-                            if (header.StartsWith("Content-Length:"))
-                                contentLength = int.Parse(header.Replace("Content-Length:", "").Trim());
-
-                            if (string.IsNullOrWhiteSpace(header)) break; // End of headers, next is image data
-                        }
-
-                        if (contentLength > 0)
-                        {
-                            // Now read exactly `contentLength` bytes to ensure we capture the entire frame
-                            var frameStream = new MemoryStream();
-                            var buffer = new byte[4096];
-                            var totalBytesRead = 0;
-
-                            while (totalBytesRead < contentLength)
+                            // Parse headers to find the Content-Length or skip to the image data
+                            var contentLength = -1;
+                            while (true)
                             {
-                                var bytesToRead = Math.Min(buffer.Length, contentLength - totalBytesRead);
-                                var bytesRead = await reader.BaseStream.ReadAsync(buffer, 0, bytesToRead);
-                                if (bytesRead == 0)
-                                    // End of stream or network issue
-                                    break;
+                                string header = ReadLine(reader);
+                                if (header.StartsWith("Content-Length:"))
+                                    contentLength = int.Parse(header.Replace("Content-Length:", "").Trim());
 
-                                totalBytesRead += bytesRead;
-                                frameStream.Write(buffer, 0, bytesRead);
+                                if (string.IsNullOrWhiteSpace(header)) break; // End of headers, next is image data
                             }
 
-                            if (frameStream.Length > 0) return frameStream;
+                            if (contentLength > 0)
+                            {
+                                // Now read exactly `contentLength` bytes to ensure we capture the entire frame
+                                var frameStream = new MemoryStream();
+                                var buffer = new byte[4096];
+                                var totalBytesRead = 0;
+
+                                while (totalBytesRead < contentLength)
+                                {
+                                    var bytesToRead = Math.Min(buffer.Length, contentLength - totalBytesRead);
+                                    var bytesRead = await reader.BaseStream.ReadAsync(buffer, 0, bytesToRead);
+                                    if (bytesRead == 0)
+                                        // End of stream or network issue
+                                        break;
+
+                                    totalBytesRead += bytesRead;
+                                    frameStream.Write(buffer, 0, bytesRead);
+                                }
+
+                                if (frameStream.Length > 0) return frameStream;
+                            }
                         }
                     }
                 }
+
+                ;
             }
 
             // If no frame was captured or there's an issue, return null
