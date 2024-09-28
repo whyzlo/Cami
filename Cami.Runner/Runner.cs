@@ -6,19 +6,16 @@ namespace Cami.Runner;
 
 public class Runner(ICamerasProvider camerasProvider, IImageStorage imageStorage)
 {
-    private readonly ICamerasProvider _camerasProvider = camerasProvider;
-    private readonly IImageStorage _imageStorage = imageStorage;
-
-    public async Task StartAsync()
+    public async Task StartAsync(CancellationToken cancellationToken = default)
     {
-        var cameras = _camerasProvider.GetList();
+        var cameras = camerasProvider.GetList();
         var cameraPool = new CameraPool(cameras);
 
         // TODO: cancellation tokens implementation (separate for separate cam)
 
 
-        var trackingOrchestrator = new TrackingOrchestrator(cameraPool, _imageStorage);
+        var trackingOrchestrator = new TrackingOrchestrator(cameraPool, imageStorage);
         trackingOrchestrator.Config();
-        await trackingOrchestrator.StartAsync();
+        await trackingOrchestrator.StartAsync(cancellationToken);
     }
 }

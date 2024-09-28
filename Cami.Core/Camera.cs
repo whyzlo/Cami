@@ -28,7 +28,7 @@ namespace Cami.Core
             _photoRecorder = photoRecorder;
         }
 
-        public async Task StartRecordingAsync()
+        public async Task StartRecordingAsync(CancellationToken cancellationToken = default)
         {
             if (OnCameraFrameRecord != null)
             {
@@ -38,7 +38,7 @@ namespace Cami.Core
                 };
             }
 
-            await _photoRecorder.StartRecording(_address, new CancellationToken());
+            await _photoRecorder.StartRecording(_address, cancellationToken);
         }
     }
 }
