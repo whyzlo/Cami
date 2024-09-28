@@ -40,6 +40,18 @@ namespace Cami.Recognize.Tests
             Assert.Equal(11, result.Count);
             Assert.Equal(7, result.Count(q => q.ObjectTypeName == "face"));
             Assert.Equal(4, result.Count(q => q.ObjectTypeName == "body"));
+
+
+
+            // TODO: remove later (now it is for testing purposes)
+            /*
+            var marker = new OpenCvObjectMarker();
+            var markedStream = marker.MarkRectanglesInImageStream(stream, result.Where(q => q.ObjectTypeName == "face").Select(q => q.Coordinates).ToList(), 2, OpenCvObjectMarker.Colors.Red);
+            markedStream = marker.MarkRectanglesInImageStream(markedStream, result.Where(q => q.ObjectTypeName == "body").Select(q => q.Coordinates).ToList(), 2, OpenCvObjectMarker.Colors.Green);
+            using var fileStream = File.Create("vavava.jpg");
+            markedStream.Seek(0, SeekOrigin.Begin);
+            markedStream.CopyTo(fileStream);
+            */
         }
     }
 }

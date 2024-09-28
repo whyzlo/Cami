@@ -18,6 +18,7 @@ namespace Cami.Recognize
 
         public Stream MarkRectanglesInImageStream(Stream imageStream, List<ObjectCoordinates> objectCoordinatesList, int thickness, (int R, int G, int B) color)
         {
+            imageStream.Seek(0, SeekOrigin.Begin);
             var sourceImage = Mat.FromStream(imageStream, ImreadModes.AnyColor);
 
             foreach (var objectCoordinates in objectCoordinatesList)
