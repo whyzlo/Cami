@@ -11,14 +11,14 @@ public class TrackingOrchestrator(CameraPool cameraPool, IImageStorage imageStor
     {
     }
 
-    public async Task StartAsync()
+    public async Task StartAsync(CancellationToken cancellationToken = default)
     {
         var cameraTasks = new List<Task>();
         foreach (var camera in cameraPool.Cameras)
         {
             camera.OnCameraFrameRecord += OnCameraFrameRecordHandler;
 
-            var task = camera.StartRecordingAsync();
+            var task = camera.StartRecordingAsync(cancellationToken);
             cameraTasks.Add(task);
         }
 
