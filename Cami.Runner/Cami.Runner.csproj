@@ -22,6 +22,7 @@
     <ItemGroup>
         <ProjectReference Include="..\Cami.Core\Cami.Core.csproj"/>
         <ProjectReference Include="..\Cami.Infra\Cami.Infra.csproj"/>
+        <ProjectReference Include="..\Cami.Recognize\Cami.Recognize.csproj" />
     </ItemGroup>
 
 </Project>

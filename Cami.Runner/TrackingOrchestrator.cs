@@ -2,6 +2,7 @@ using System.Collections.Generic;
 using System.Threading.Tasks;
 using Cami.Core;
 using Cami.Core.Interfaces;
+using Cami.Recognize;
 
 namespace Cami.Runner;
 
@@ -16,13 +17,9 @@ public class TrackingOrchestrator(CameraPool cameraPool, IImageStorage imageStor
         var cameraTasks = new List<Task>();
         foreach (var camera in cameraPool.Cameras)
         {
-            var task = Task.Run(async () =>
-            {
-                camera.OnCameraFrameRecord += OnCameraFrameRecordHandler;
+            camera.OnCameraFrameRecord += OnCameraFrameRecordHandler;
 
-                await camera.StartRecordingAsync();
-            });
-
+            var task = camera.StartRecordingAsync();
             cameraTasks.Add(task);
         }
 
@@ -34,6 +31,9 @@ public class TrackingOrchestrator(CameraPool cameraPool, IImageStorage imageStor
         if (sender is Camera camera)
         {
             Task.Run(async () => await imageStorage.SaveAsync(camera.Id, camera.Name, args.FrameStream, args.StartTime));
+
+       /*     HaarCascadeAlgorithm r = new HaarCascadeAlgorithm();
+            var result = r.GetImageInfo(args.FrameStream); */
         }
     }
 }
