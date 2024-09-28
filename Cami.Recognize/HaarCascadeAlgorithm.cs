@@ -7,7 +7,6 @@ using OpenCvSharp.Dnn;
 
 namespace Cami.Recognize
 {
-    /* FYI for the future: Here is an example to draw rectangle on the image: Cv2.Rectangle(mat, face, new Scalar(0, 255, 0), 2);*/
     public class HaarCascadeAlgorithm
     {
         private readonly List<(string objectTypeName, CascadeClassifier cascadeClassifier)> _cascades =
