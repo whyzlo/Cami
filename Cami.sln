@@ -16,8 +16,6 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Old", "Old", "{65C13E8A-DD7
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cami.Photo", "Cami.Photo\Cami.Photo.csproj", "{664E602B-F408-4DA4-BE80-6DD2FCB5FFEF}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cami.Video", "Cami.Video\Cami.Video.csproj", "{2B3FA6CB-3828-4F76-B47B-DCCA626D040A}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cami.Recognize", "Cami.Recognize\Cami.Recognize.csproj", "{704C003A-CD7B-4C4E-9E93-5421F3FE05E7}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cami.Recognize.Tests", "Cami.Recognize.Tests\Cami.Recognize.Tests.csproj", "{DC9699B1-B851-43D8-9B79-AA7B3CAEB491}"
@@ -44,10 +42,6 @@ Global
 		{664E602B-F408-4DA4-BE80-6DD2FCB5FFEF}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{664E602B-F408-4DA4-BE80-6DD2FCB5FFEF}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{664E602B-F408-4DA4-BE80-6DD2FCB5FFEF}.Release|Any CPU.Build.0 = Release|Any CPU
-		{2B3FA6CB-3828-4F76-B47B-DCCA626D040A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{2B3FA6CB-3828-4F76-B47B-DCCA626D040A}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{2B3FA6CB-3828-4F76-B47B-DCCA626D040A}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{2B3FA6CB-3828-4F76-B47B-DCCA626D040A}.Release|Any CPU.Build.0 = Release|Any CPU
 		{704C003A-CD7B-4C4E-9E93-5421F3FE05E7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{704C003A-CD7B-4C4E-9E93-5421F3FE05E7}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{704C003A-CD7B-4C4E-9E93-5421F3FE05E7}.Release|Any CPU.ActiveCfg = Release|Any CPU
