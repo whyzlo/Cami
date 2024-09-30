@@ -1,0 +1,15 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFramework>netstandard2.0</TargetFramework>
+    </PropertyGroup>
+
+    <ItemGroup>
+      <PackageReference Include="OpenCvSharp4" Version="4.10.0.20240616" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <ProjectReference Include="..\Cami.Core\Cami.Core.csproj" />
+    </ItemGroup>
+
+</Project>

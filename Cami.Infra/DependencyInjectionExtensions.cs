@@ -1,3 +1,4 @@
+using Cami.Capture;
 using Cami.Core.Interfaces;
 using Cami.Infra.Mocks;
 using Cami.Infra.Services.File;
@@ -14,7 +15,9 @@ namespace Cami.Infra
             services.AddTransient<IImageStorage, ImageStorage>();
             services.AddTransient<IImageContentService, ImageFileStorageService>();
             services.AddTransient<IImageMetaDataService, FakeImageMetaDataService>();
-            services.AddTransient<IPhotoRecorder, PhotoRecorder>();
+            // services.AddTransient<ICameraDataReader, IpCameraOpenCvStreamReader>();
+            services.AddTransient<ICameraDataReader, CameraDataReader>();
+
         }
     }
 }

@@ -20,6 +20,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cami.Recognize", "Cami.Reco
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cami.Recognize.Tests", "Cami.Recognize.Tests\Cami.Recognize.Tests.csproj", "{DC9699B1-B851-43D8-9B79-AA7B3CAEB491}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cami.Capture", "Cami.Capture\Cami.Capture.csproj", "{3228B065-E0DD-4369-9B11-122B4DE29178}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -50,6 +52,10 @@ Global
 		{DC9699B1-B851-43D8-9B79-AA7B3CAEB491}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{DC9699B1-B851-43D8-9B79-AA7B3CAEB491}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{DC9699B1-B851-43D8-9B79-AA7B3CAEB491}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3228B065-E0DD-4369-9B11-122B4DE29178}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3228B065-E0DD-4369-9B11-122B4DE29178}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3228B065-E0DD-4369-9B11-122B4DE29178}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3228B065-E0DD-4369-9B11-122B4DE29178}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{453B83F9-B707-429E-8B7D-78F14E543CE2} = {65C13E8A-DD70-4ED1-B61C-D6E85D61C47A}

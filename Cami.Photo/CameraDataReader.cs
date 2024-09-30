@@ -9,24 +9,25 @@ using Cami.Core.Interfaces;
 
 namespace Cami.Photo
 {
-    public class PhotoRecorder : IPhotoRecorder
+    public class CameraDataReader : ICameraDataReader
     {
-        public EventHandler<PhotoRecordedEventArgs> OnPhotoCreated { get; set; }
+        public EventHandler<ImageRecordCreatedEventArgs> OnImageRecordCreated { get; set; }
 
-        public async Task StartRecording(string sourceAddress, CancellationToken token)
+        public async Task StartCapturing(string sourceAddress, int fps, CancellationToken token)
         {
-            // TODO: this should be configured.
-            int delayInMs = 500;
+            // TODO: this should be recalculated based on fps
+            var frameInterval = 1000 / fps;
+
             
             while (token.IsCancellationRequested == false)
             {    
                 var startTime = DateTime.UtcNow; 
 
                 var dataStream = await GetFirstFrameAsStreamAsync(sourceAddress);
-                OnPhotoCreated?.Invoke(this, new PhotoRecordedEventArgs(dataStream, startTime));
+                OnImageRecordCreated?.Invoke(this, new ImageRecordCreatedEventArgs(dataStream, startTime));
                 
                 var elapsedTime = (DateTime.UtcNow - startTime).TotalMilliseconds;
-                var remainingDelay = delayInMs - (int)elapsedTime; 
+                var remainingDelay = frameInterval - (int)elapsedTime; 
                 
                 Console.WriteLine($"Sleeping: { remainingDelay }ms");
 

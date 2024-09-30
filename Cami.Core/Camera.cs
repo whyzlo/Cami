@@ -13,32 +13,33 @@ namespace Cami.Core
         public Guid Id { get; }
         public string Name { get; }
         private readonly string _address;
-        private readonly IPhotoRecorder _photoRecorder;
+        private readonly ICameraDataReader _cameraDataReader;
 
         public Camera(
             Guid id,
             string name,
             string address,
-            IPhotoRecorder photoRecorder
+            ICameraDataReader cameraDataReader
             )
         {
             Id = id;
             Name = name;
             _address = address;
-            _photoRecorder = photoRecorder;
+            _cameraDataReader = cameraDataReader;
         }
 
         public async Task StartRecordingAsync(CancellationToken cancellationToken = default)
         {
             if (OnCameraFrameRecord != null)
             {
-                _photoRecorder.OnPhotoCreated += (_, args) =>
+                _cameraDataReader.OnImageRecordCreated += (_, args) =>
                 {
-                    OnCameraFrameRecord.Invoke(this, new CameraRecordEventArgs(args.FrameStream, args.StartTime));
+                    OnCameraFrameRecord.Invoke(this, new CameraRecordEventArgs(args.ImageStream, args.StartTime));
                 };
             }
 
-            await _photoRecorder.StartRecording(_address, cancellationToken);
+            // TODO: config FPS
+            await _cameraDataReader.StartCapturing(_address, fps: 25, cancellationToken);
         }
     }
 }
